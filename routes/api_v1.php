@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\api\v1\ExampleController;
+use App\Http\Controllers\api\v1\CigrattesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -8,7 +8,7 @@ use App\Http\Controllers\api\v1\ExampleController;
 |--------------------------------------------------------------------------
 |
 | This file contains all of the v1 routes.
-| This file is loaded and the routes are pre-pended automatically 
+| This file is loaded and the routes are pre-pended automatically
 | by App\Providers\RouteServiceProvider->boot()
 |
 */
@@ -18,15 +18,18 @@ Route::group([
     'middleware' => ['api_authenticated']
 ], function() {
 
-    Route::get('/example-authenticated', [ExampleController::class, 'authenticated']);
-
+    Route::get('/example-authenticated', [CigrattesController::class, 'authenticated']);
 });
 
 // Public API
 Route::group([
     'middleware' => ['api_public'],
 ], function () {
+    Route::get('/cigrattes/{id?}', [CigrattesController::class, 'index']);
+});
 
-    Route::get('/example', [ExampleController::class, 'index']);
-
+Route::group([
+  'middleware' => ['api_public'],
+], function () {
+  Route::get('/cigratte-types', [CigrattesController::class, 'cigratteType']);
 });
