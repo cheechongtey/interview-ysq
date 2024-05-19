@@ -18,7 +18,7 @@
 
     </head>
 
-    <body>
+    <body class="bg-main text-white">
         <div id="root"></div>
     </body>
 
