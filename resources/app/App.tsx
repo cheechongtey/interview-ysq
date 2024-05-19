@@ -4,12 +4,12 @@ import ToastNotifications from "@/components/ToastNotifications";
 
 function App() {
     return (
-        <div className="block relative">
+        <>
             <RouterProvider
                 router={router}
             />
             <ToastNotifications />
-        </div>
+        </>
     );
 }
 
